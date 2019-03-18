@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DefaultPadding" parent="AppTheme">
+        <item name="android:paddingStart">@dimen/horizontal_spacing</item>
+        <item name="android:paddingEnd">@dimen/horizontal_spacing</item>
+        <item name="android:paddingLeft">@dimen/horizontal_spacing</item>
+        <item name="android:paddingRight">@dimen/horizontal_spacing</item>
+        <item name="android:paddingTop">@dimen/vertical_spacing</item>
+        <item name="android:paddingBottom">@dimen/vertical_spacing</item>
+    </style>
+
+    <style name="DefaultMargin" parent="AppTheme">
+        <item name="android:layout_marginStart">@dimen/horizontal_spacing</item>
+        <item name="android:layout_marginEnd">@dimen/horizontal_spacing</item>
+        <item name="android:layout_marginLeft">@dimen/horizontal_spacing</item>
+        <item name="android:layout_marginRight">@dimen/horizontal_spacing</item>
+        <item name="android:layout_marginTop">@dimen/vertical_spacing</item>
+        <item name="android:layout_marginBottom">@dimen/vertical_spacing</item>
+    </style>
+
+    <style name="SmallMargin" parent="AppTheme">
+        <item name="android:layout_marginStart">@dimen/small_spacing</item>
+        <item name="android:layout_marginEnd">@dimen/small_spacing</item>
+        <item name="android:layout_marginLeft">@dimen/small_spacing</item>
+        <item name="android:layout_marginRight">@dimen/small_spacing</item>
+        <item name="android:layout_marginTop">@dimen/small_spacing</item>
+        <item name="android:layout_marginBottom">@dimen/small_spacing</item>
+    </style>
+
+    <style name="TextInputMargin" parent="SmallMargin">
+        <item name="android:layout_marginStart">@dimen/horizontal_spacing</item>
+        <item name="android:layout_marginLeft">@dimen/horizontal_spacing</item>
+    </style>
+
+    <style name="ChatNameTextView" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ChatMessageSenderNameTextView" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

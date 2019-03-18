@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.trautmann.simplechatapp.viewmodel.InitSessionViewModel" />
+    </data>
+
+    <LinearLayout
+        style="@style/DefaultPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/DefaultPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/vertical_spacing"
+            android:background="@drawable/background_text_input"
+            android:enabled="@{viewModel.loggingIn ? false : true}"
+            android:gravity="center_horizontal"
+            android:hint="@string/name_hint_text"
+            android:inputType="textEmailAddress"
+            android:visibility="@{viewModel.registering ? View.VISIBLE : View.GONE}" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            style="@style/DefaultPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_text_input"
+            android:enabled="@{viewModel.loggingIn ? false : true}"
+            android:gravity="center_horizontal"
+            android:hint="@string/email_hint_text"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            style="@style/DefaultPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_spacing"
+            android:background="@drawable/background_text_input"
+            android:enabled="@{viewModel.loggingIn ? false : true}"
+            android:gravity="center_horizontal"
+            android:hint="@string/password_hint_text"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            style="@style/DefaultPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_spacing"
+            android:background="@drawable/background_text_input"
+            android:enabled="@{viewModel.loggingIn ? false : true}"
+            android:gravity="center_horizontal"
+            android:hint="@string/confirm_password_hint_text"
+            android:inputType="textPassword"
+            android:visibility="@{viewModel.registering ? View.VISIBLE : View.GONE}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_spacing">
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/background_large_button"
+                android:enabled="@{viewModel.loggingIn ? false : true}"
+                android:onClick="@{viewModel.registering ? viewModel.onRegisterClicked(nameEditText, emailEditText, passwordEditText, confirmPasswordEditText, context) : viewModel.onLoginClicked(emailEditText, passwordEditText, context)}"
+                android:text="@{viewModel.registering ? @string/register_button_text : @string/login_button_text}"
+                android:visibility="@{viewModel.loggingIn ? View.GONE : View.VISIBLE}" />
+
+            <ProgressBar
+                android:id="@+id/loginProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{viewModel.loggingIn ? View.VISIBLE : View.GONE}" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/account_status_prompt_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/vertical_spacing"
+            android:enabled="@{viewModel.loggingIn ? false : true}"
+            android:onClick="@{viewModel.onAccountStatusPromptClicked()}"
+            android:text="@{viewModel.registering ? @string/back_to_login_text : @string/to_register_button_text}"
+            tools:text="@string/login_account_prompt" />
+
+
+    </LinearLayout>
+</layout>

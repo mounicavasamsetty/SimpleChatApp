@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.trautmann.simplechatapp.viewmodel.ChatDetailActivityViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/chatMessagesListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/chatDetailInputLayout"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/vertical_spacing" />
+
+        <RelativeLayout
+            android:id="@+id/chatDetailInputLayout"
+            style="@style/DefaultMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/background_text_input"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/chatDetailInputEditText"
+                style="@style/TextInputMargin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/chatDetailSendImageButton"
+                android:background="@android:color/transparent"
+                android:hint="@string/new_message_hint_text"
+                android:inputType="textCapSentences" />
+
+            <ImageButton
+                android:id="@+id/chatDetailSendImageButton"
+                style="@style/SmallMargin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_send_black_24dp" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
